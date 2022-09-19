@@ -6,7 +6,7 @@ Using the data for the [Seattle Library Checkout Records](https://www.kaggle.com
 
 Download the data and place it in a folder called `data`.
 
-## Simple questions
+## 1. Simple questions
 
 **Task**
 
@@ -27,7 +27,7 @@ To successfully complete this task, you shall be able to:
 - demonstrate awareness of how to join multiple datasets
 - demonstrate the ability of performing operations on a dataset
 
-## Exploratory data analysis
+## 2. Exploratory data analysis
 
 **Task**
 
@@ -40,7 +40,7 @@ At the completion of this task, it is expected that you are able to:
 - demonstrate the ability of exploring a dataset
 - demonstrate the ability to interpret the data and translate it to a non technical audience
 
-## Qualitative research
+## 3. Qualitative research
 
 **Task**
 
