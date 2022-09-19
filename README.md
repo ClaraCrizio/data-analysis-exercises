@@ -4,9 +4,14 @@ This project aims to help you train Data Analysis skills and build a small portf
 
 Using the data for the [Seattle Library Checkout Records](https://www.kaggle.com/datasets/seattle-public-library/seattle-library-checkout-records) complete the following tasks.
 
-Download the data and place it in a folder called `data`.
+How to start:
+1. fork this repo
+2. download the data and place it in a folder called `data` inside this project
+3. create a jupyter notebook file for each task (recommended)
+4. create a markdown file to answer each task (reports can be delivered any way you want)
 
-## 1. Simple questions
+
+## Simple questions
 
 **Task**
 
@@ -27,7 +32,7 @@ To successfully complete this task, you shall be able to:
 - demonstrate awareness of how to join multiple datasets
 - demonstrate the ability of performing operations on a dataset
 
-## 2. Exploratory data analysis
+## Exploratory data analysis
 
 **Task**
 
@@ -40,7 +45,7 @@ At the completion of this task, it is expected that you are able to:
 - demonstrate the ability of exploring a dataset
 - demonstrate the ability to interpret the data and translate it to a non technical audience
 
-## 3. Qualitative research
+## Qualitative research
 
 **Task**
 
