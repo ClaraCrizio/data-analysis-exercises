@@ -20,7 +20,7 @@ In this first task, answer the following questions using the datasets:
 - how many books were checkout in 2017?
 - how many books are there in the library? how many titles?
 - what are the top 10 loaned books in 2017?
-- how many books were taken on loan in 2017?
+- how many books titles were taken on loan in 2017?
 - what was the most popular genre in 2017?
 - did the number of book loans diminished or increased from 2016 to 2017? By how much?
 
