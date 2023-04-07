@@ -43,7 +43,7 @@ Total_Books_2017 <- Checkout_Books_2017 %>%
 #-------------------------------------------
 # How many books are there in the library? 
 
-# Selecionando apenas códigos de itens tipo "Book":
+# Identificando apenas códigos de itens tipo "Book":
 Code_Books <- Integrated_Library_System__ILS__Data_Dictionary %>% 
   filter(Code.Type=="ItemType"& Format.Subgroup=="Book") %>% 
   select(Code) %>% 
