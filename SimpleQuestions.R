@@ -33,8 +33,7 @@ Library_Collection_Inventory <- Library_Collection_Inventory %>%
 Checkout_Books_2017 <- Checkouts_By_Title_Data_Lens_2017 %>% 
   left_join(Integrated_Library_System__ILS__Data_Dictionary, by = c("ItemType"="Code")) %>% 
   group_by(Format.Subgroup) %>% 
-  filter(Format.Subgroup=="Book") %>% 
-  as.data.frame()
+  filter(Format.Subgroup=="Book")
 
 Total_Books_2017 <- Checkout_Books_2017 %>% 
   summarise(N_Books_2017 = n_distinct(ItemBarcode))
@@ -44,7 +43,7 @@ Total_Books_2017 <- Checkout_Books_2017 %>%
 #-------------------------------------------
 # How many books are there in the library? 
 
-# Identificando apenas códigos de itens tipo "Book":
+# Selecionando apenas códigos de itens tipo "Book":
 Code_Books <- Integrated_Library_System__ILS__Data_Dictionary %>% 
   filter(Code.Type=="ItemType"& Format.Subgroup=="Book") %>% 
   select(Code) %>% 
@@ -56,7 +55,7 @@ Total_Books <- Library_Collection_Inventory %>%
   summarise(N_Books = sum(ItemCount*Books, na.rm = TRUE)) %>% 
   summarise(Total_Books = sum(N_Books))
 
-# Resposta: Total de livros = 1.330.706
+# Resposta: Total de livros = 620.819
 
 #--------------------------------------------
 # How many titles?
@@ -67,7 +66,7 @@ Total_Book_Titles <- Library_Collection_Inventory %>%
   filter(Books==1) %>% 
   summarise(N_Titles=n_distinct(BibNum))
 
-# Resposta: Total de Títulos (livros) = 497.949
+# Resposta: Total de Títulos (livros) =	497.692
 
 # Número de títulos (todos itens):
 Total_Titles <- Library_Collection_Inventory %>%
@@ -77,7 +76,6 @@ Total_Titles <- Library_Collection_Inventory %>%
 
 #-------------------------------------------
 # What are the top 10 loaned books in 2017?
-
 Top10_Books <- Checkout_Books_2017 %>% 
   group_by(BibNumber) %>% 
   summarise(N_Checkouts=n()) %>% 
@@ -120,20 +118,23 @@ TopGenre_2017 <- Checkouts_By_Title_Data_Lens_2017 %>%
 #--------------------------------------------
 # Did the number of book loans diminished or increased from 2016 to 2017? By how much?
 
+Checkouts_By_Title_Data_Lens_2016 <- read.csv("Checkouts_By_Title_Data_Lens_2016.csv")
+
 Books_Checkout_2016 <- Checkouts_By_Title_Data_Lens_2016 %>% 
   left_join(Integrated_Library_System__ILS__Data_Dictionary, by = c("ItemType"="Code")) %>% 
   group_by(Format.Subgroup) %>% 
   filter(Format.Subgroup=="Book") %>% 
-  summarise(Total_2016=n())
+  summarise(Total=n())
 
-# Total de checkouts de livros registrados em 2016 = 3.809.638
+# Total de checkouts de livros registrados em 2016 = 3.809.638 	
 
 Books_Checkout_2017 <- Checkout_Books_2017 %>% 
-  summarise(Total_2016=n())
+  summarise(Total=n())
 
 # Total de checkouts de livros registrados em 2017 = 3.085.248
 
-Books_Checkout_2016_2017 <- Books_Checkout_2017/Books_Checkout_2016 * 100 - 100
+Books_Checkout_2016_2017 <- Books_Checkout_2017$Total/Books_Checkout_2016$Total * 100 - 100
 
 # Resposta: Diminuiu em -19.01467 %
+
 
