@@ -21,11 +21,10 @@ describe(Library_Collection_Inventory) # Inventário: 2.687.149 registros
 # Os dados da coleção (Library_Collection_Iventory) são duplicados para atualizar a localização dos itens na biblioteca.
 
 Library_Collection_Inventory <- Library_Collection_Inventory %>% 
-  mutate(ReportDate = as.Date(ReportDate, "%m/%d/%Y")) %>% 
-  group_by(BibNum) %>% 
-  filter(ReportDate == max(ReportDate))
+  arrange(desc(ReportDate)) %>% 
+  distinct(BibNum, .keep_all = TRUE)
 
-# Restam 1.346.314 registros únicos (BibNum)
+# Restam 584.391 registros únicos (BibNum)
 
 #-------------------------------------------
 # How many books were checkout in 2017?
